@@ -7,7 +7,7 @@ class MapperTest < Test::Unit::TestCase
   HAMBURG  = {:lat => 53.55, :lon => 9.99,  :x => 206, :y => 114}
   MANNHEIM = {:lat => 49.48, :lon => 8.46,  :x => 136, :y => 410}
   
-  def test_initialize
+  def test_initialization
     mapper = Mapper.new(MUNICH, HAMBURG)
     assert (45.52 .. 45.62).include?(mapper.x_factor), 'wrong x_factor' # ~ 45.57
     assert (-71.82 .. -71.72).include?(mapper.y_factor), 'wrong x_factor' # ~ -71.77
@@ -18,15 +18,23 @@ class MapperTest < Test::Unit::TestCase
   def test_add_new_geo_coordinate
     mapper = Mapper.new(MUNICH, HAMBURG)
     mapper.add_point(:lat=>BERLIN[:lat], :lon=>BERLIN[:lon])
-    assert (BERLIN[:x]-5 .. BERLIN[:x]+5).include? mapper.points.first[:x]
-    assert (BERLIN[:y]-5 .. BERLIN[:y]+5).include? mapper.points.first[:y]
+    assert (BERLIN[:x]-5 .. BERLIN[:x]+5).include?(mapper.first[:x])
+    assert (BERLIN[:y]-5 .. BERLIN[:y]+5).include?(mapper.first[:y])
   end
   
   def test_add_new_map_coordinate
     mapper = Mapper.new(MUNICH, HAMBURG)
     mapper.add_point(:x=>BERLIN[:x], :y=>BERLIN[:y])
-    assert (BERLIN[:lat]-0.1 .. BERLIN[:lat]+0.1).include? mapper.points.first[:lat]
-    assert (BERLIN[:lon]-0.1 .. BERLIN[:lon]+0.1).include? mapper.points.first[:lon]
+    assert (BERLIN[:lat]-0.1 .. BERLIN[:lat]+0.1).include?(mapper.first[:lat])
+    assert (BERLIN[:lon]-0.1 .. BERLIN[:lon]+0.1).include?(mapper.first[:lon])
   end
   
+  def test_add_incomplete_coordinate
+    mapper = Mapper.new(MUNICH, HAMBURG)
+    mapper.add_point(:lat=>BERLIN[:lat])
+    assert_equal BERLIN[:lat], mapper.first[:lat]
+    assert (BERLIN[:y]-5 .. BERLIN[:y]+5).include?(mapper.first[:y])
+    assert !mapper.first[:x]
+    assert !mapper.first[:lon]
+  end
 end

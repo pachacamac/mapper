@@ -6,7 +6,7 @@ Installation
 
 Usage
 -----
-`require 'mapper'`
+* `require 'mapper'`
 * `# now just initialize it with two known points on your map and you are ready to go!`
 * `mapper = Mapper.new({:lat=>48.13,:lon=>11.57,:x=>278,:y=>503}, {:lat=>53.55,:lon=>9.99,:x=>206,:y=>114})`
 * `mapper.add_point(:lat=>52.52, :lon=>13.41)`

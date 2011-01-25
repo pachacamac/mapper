@@ -2,7 +2,7 @@
 
 Installation
 ------------
-* sudo gem install mapper
+* gem install mapper
 
 Usage
 -----

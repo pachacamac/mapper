@@ -11,8 +11,8 @@ class MapperTest < Test::Unit::TestCase
     mapper = Mapper.new(MUNICH, HAMBURG)
     assert (45.52 .. 45.62).include?(mapper.x_factor), 'wrong x_factor' # ~ 45.57
     assert (-71.82 .. -71.72).include?(mapper.y_factor), 'wrong x_factor' # ~ -71.77
-    assert (55.09 .. 55.19).include?(mapper.zp[:lat]), 'wrong zp[:lat]' # ~ 55.14
-    assert (5.42 .. 5.52).include?(mapper.zp[:lon]), 'wrong zp[:lon]' # ~ 5.47
+    assert (55.09 .. 55.19).include?(mapper.zero_point[:lat]), 'wrong zero_point[:lat]' # ~ 55.14
+    assert (5.42 .. 5.52).include?(mapper.zero_point[:lon]), 'wrong zero_point[:lon]' # ~ 5.47
   end
   
   def test_add_new_geo_coordinate

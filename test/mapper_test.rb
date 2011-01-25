@@ -3,9 +3,9 @@ require 'test/unit'
 
 class MapperTest < Test::Unit::TestCase
   MUNICH   = {:lat => 48.13, :lon => 11.57, :x => 278, :y => 503}
-	BERLIN   = {:lat => 52.52, :lon => 13.41, :x => 361, :y => 191}
-	HAMBURG  = {:lat => 53.55, :lon => 9.99,  :x => 206, :y => 114}
-	MANNHEIM = {:lat => 49.48, :lon => 8.46,  :x => 136, :y => 410}
+  BERLIN   = {:lat => 52.52, :lon => 13.41, :x => 361, :y => 191}
+  HAMBURG  = {:lat => 53.55, :lon => 9.99,  :x => 206, :y => 114}
+  MANNHEIM = {:lat => 49.48, :lon => 8.46,  :x => 136, :y => 410}
   
   def test_initialize
     mapper = Mapper.new(MUNICH, HAMBURG)

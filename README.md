@@ -1,4 +1,5 @@
-**Mapper 1.0 - A tiny geo coordinate converter - basically for plotting latitude/longitude pairs to an image**
+**Mapper [![Gem Version](https://badge.fury.io/rb/mapper.svg)](http://badge.fury.io/rb/mapper) - A tiny geo coordinate converter - basically for plotting latitude/longitude pairs to an image**
+
 
 Installation
 ------------
